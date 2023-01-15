@@ -1,0 +1,16 @@
+{
+    "name": "Crosswork.View",
+    "rootNamespace": "Crosswork.View",
+    "references": [
+        "GUID:fe1856ec4139e60478fe7825b2312438"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
