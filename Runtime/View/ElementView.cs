@@ -20,6 +20,9 @@ namespace Crosswork.View
         {
             this.element = element;
         }
+
+        public virtual void OnDestroying(IIntent intent)
+        { }
     }
 
     public abstract class ElementView<TElement> : ElementView

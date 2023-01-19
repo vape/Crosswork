@@ -169,6 +169,7 @@ namespace Crosswork.View
 
             if (view != null)
             {
+                view.OnDestroying(intent);
                 viewFactory.PurgeView(view);
             }
 
