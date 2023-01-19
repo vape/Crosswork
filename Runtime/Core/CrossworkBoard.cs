@@ -33,7 +33,9 @@ namespace Crosswork.Core
         private Cell[,] cells;
         private Dictionary<int, ulong> elementsLocks;
         private ulong[,] cellLocks;
-        private int idGen;
+
+        // start ids from '1' so '0' can be used as default value
+        private int idGen = 1;
 
         public CrossworkBoard(IBoardView view, IBoardFactory factory)
         {
