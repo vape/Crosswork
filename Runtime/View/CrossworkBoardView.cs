@@ -278,11 +278,23 @@ namespace Crosswork.View
 
         // --------------
 
+        public static Vector3 GridToLocalPosition(float x, float y, int width, int height, Vector2 cellSize, Vector2 cellPivot, Vector2 boardPivot)
+        {
+            return new Vector3(
+                (cellSize.x * cellPivot.x) + x * cellSize.x - (cellSize.x * width * boardPivot.x),
+                (cellSize.y * cellPivot.y) + y * cellSize.y - (cellSize.y * height * boardPivot.y));
+        }
+
         public static Vector3 GridToLocalPosition(int x, int y, int width, int height, Vector2 cellSize, Vector2 cellPivot, Vector2 boardPivot)
         {
             return new Vector3(
                 (cellSize.x * cellPivot.x) + x * cellSize.x - (cellSize.x * width * boardPivot.x),
                 (cellSize.y * cellPivot.y) + y * cellSize.y - (cellSize.y * height * boardPivot.y));
+        }
+
+        public Vector3 GridToLocalPosition(Vector2 gridPosition)
+        {
+            return GridToLocalPosition(gridPosition.x, gridPosition.y);
         }
 
         public Vector3 GridToLocalPosition(Vector2Int gridPosition)
@@ -291,6 +303,11 @@ namespace Crosswork.View
         }
 
         public Vector3 GridToLocalPosition(int x, int y)
+        {
+            return GridToLocalPosition(x, y, width, height, cellSize, half, boardPivot);
+        }
+
+        public Vector3 GridToLocalPosition(float x, float y)
         {
             return GridToLocalPosition(x, y, width, height, cellSize, half, boardPivot);
         }
