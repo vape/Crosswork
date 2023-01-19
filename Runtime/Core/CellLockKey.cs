@@ -2,9 +2,11 @@
 #define CROSSWORK_DEBUG
 #endif
 
+using System;
+
 namespace Crosswork.Core
 {
-    public struct CellLockKey
+    public struct CellLockKey : IEquatable<CellLockKey>
     {
         public readonly int X;
         public readonly int Y;
@@ -23,6 +25,33 @@ namespace Crosswork.Core
 #if CROSSWORK_DEBUG
             Description = description;
 #endif
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + X.GetHashCode();
+                hash = hash * 23 + Y.GetHashCode();
+                hash = hash * 23 + Flag.GetHashCode();
+                return hash;
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is not CellLockKey)
+            {
+                return false;
+            }
+
+            return Equals((CellLockKey)obj);
+        }
+
+        public bool Equals(CellLockKey other)
+        {
+            return X == other.X && Y == other.Y && Flag == other.Flag;
         }
     }
 }
