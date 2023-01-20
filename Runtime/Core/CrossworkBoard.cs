@@ -107,6 +107,7 @@ namespace Crosswork.Core
                 throw new InvalidOperationException("Board not loaded.");
             }
 
+            view.Unload();
             loaded = false;
         }
 
